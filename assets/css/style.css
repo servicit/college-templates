@@ -1,5 +1,5 @@
 /**
-* Template Name: Eterna - v2.2.0
+* Template Name: ServicIt - v2.2.0
 * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
@@ -25,7 +25,6 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway", sans-serif;
 }
-
 
 /*--------------------------------------------------------------
 # Header
@@ -55,6 +54,35 @@ h1, h2, h3, h4, h5, h6 {
 #header .logo h1 a, #header .logo h1 a:hover {
     color: #545454;
     text-decoration: none;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    -moz-text-align-last: right;
+    text-align-last: right;
+}
+
+.content button {
+    display: inline-block;
+    background: rgba(13, 57, 170, 0.8);
+    color: #fff;
+    padding: 6px 20px 8px 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    border-radius: 50px;
+}
+
+.content button:hover {
+    background: rgba(29, 70, 167, 0.78);
+}
+
+.content .reload-page {
+    position: fixed;
+    right: 50px;
+    top: 110px;
+    z-index: 10;
 }
 
 /*--------------------------------------------------------------
@@ -165,7 +193,6 @@ h1, h2, h3, h4, h5, h6 {
         content: "\ea9d";
     }
 }
-
 
 /*--------------------------------------------------------------
 # Top Bar

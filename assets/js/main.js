@@ -1,10 +1,15 @@
 /**
  * Template Name: ServicIt
-
  */
 
 !(function ($) {
     "use strict";
+
+    // Stick the header at top on scroll
+    $("#header").sticky({
+        topSpacing: 0,
+        zIndex: '50'
+    });
 
     //contentful connect
     var client = contentful.createClient({
@@ -13,26 +18,24 @@
     });
     client.getEntries({
         content_type: 'author',
-    })
-        .then(function (entries) {
-            entries.items.forEach(function (entry) {
-                $('#title').append(`<h2>${entry.fields.title}</h2>`)
-                $('#description').append(`<h2>${entry.fields.description}</h2>`)
-            });
+    }).then(function (entries) {
+        entries.items.forEach(function (entry) {
+            $('#description').append(`
+           <article class="entry">
+              <div class="entry-img">
+                <img src="http:${entry.fields.image.fields.file.url}" class="img-fluid" alt="">
+              </div>
+              <h2 class="entry-title">
+                <a>${entry.fields.title}</a>
+              </h2>
+              <div class="entry-content">
+                <p>
+                  ${entry.fields.description}
+                </p>
+              </div>
+            </article>`)
         });
-// ... servicIt
-//     const urlContentful = 'https://cdn.contentful.com/spaces/1h13hx8va31r/environments/master/entries/?access_token=gcmGigR4J6ncd_mLSc0yt_V4PG3a6gQVFt6u_-lPHBc'
-//     fetch(urlContentful, {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application-json'
-//         },
-//     }).then(res => {
-//         return res.json()
-//     }).then(data =>
-//         console.log(data.items,'data'))
-//         .catch(error => console.log(error, 'ERROR'))
-
+    });
 
     // Smooth scroll for the navigation menu and links with .scrollto classes
     var scrolltoOffset = $('#header').outerHeight() - 1;
@@ -115,12 +118,6 @@
         $(".mobile-nav, .mobile-nav-toggle").hide();
     }
 
-    // Stick the header at top on scroll
-    $("#header").sticky({
-        topSpacing: 0,
-        zIndex: '50'
-    });
-
     // Real view height for mobile devices
     if (window.matchMedia("(max-width: 767px)").matches) {
         $('#hero').css({
@@ -135,7 +132,6 @@
         (index === 0) ?
             heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "' class='active'></li>") :
             heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "'></li>");
-
     });
 
     heroCarousel.on('slid.bs.carousel', function (e) {
@@ -221,5 +217,4 @@
         loop: true,
         items: 1
     });
-
-})(jQuery);
+})(jQuery)
