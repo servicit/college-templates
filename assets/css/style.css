@@ -65,17 +65,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content button {
-    display: inline-block;
-    background: rgba(13, 57, 170, 0.8);
+    background: rgba(33, 101, 255, 0.85);
     color: #fff;
-    padding: 6px 20px 8px 20px;
+    padding: 10px 10px 10px 10px;
     transition: 0.3s;
     font-size: 14px;
-    border-radius: 50px;
+    border-radius: 100px;
+    box-shadow: 0 0 15px  rgba(0,0,0,0.4);
+    border: none;
 }
 
 .content button:hover {
-    background: rgba(29, 70, 167, 0.78);
+    background: rgb(48, 104, 227);
 }
 
 .content .reload-page {

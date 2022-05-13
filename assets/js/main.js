@@ -13,11 +13,11 @@
 
     //contentful connect
     var client = contentful.createClient({
-        space: '1h13hx8va31r',
-        accessToken: 'gcmGigR4J6ncd_mLSc0yt_V4PG3a6gQVFt6u_-lPHBc',
+        space: 'rrf8x8ztwkew',
+        accessToken: 'URf70KaEdgfgrSf4t6pYgudwg0Gmw-H_wuDIgJexO8A',
     });
     client.getEntries({
-        content_type: 'author',
+        content_type: 'post',
     }).then(function (entries) {
         entries.items.forEach(function (entry) {
             $('#description').append(`
